@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/chat.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+    <title>Ia Tec | Recomendaciones</title>
+    <script>
+        function sendUserMessage() {
+            var user_input = document.getElementById("user_input").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/chat", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var chat_display = document.getElementById("chat_display");
+                    
+                    // Reemplazar el contenido del chat_display con el nuevo mensaje del chatbot
+                    chat_display.innerHTML = `<p>${response.response}</p><br>`;
+                    
+                    // Limpiar campo de entrada
+                    document.getElementById("user_input").value = "";
+                }
+            };
+            xhr.send("user_input=" + encodeURIComponent(user_input));
+            return false;
+        }
+    </script>
+    
+    
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+
+            <img src="../static/image/icono_bot.png" alt="logo de la Empresa">
+            <h4>Smart <br> Tec</h4>
+        </div>
+
+        <div class="bars">
+            <div class="line"></div>
+            <div class="line"></div>
+
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="../templates/index.html">Inicio</a></li>
+                <li><a href="proto.html">Recomendaciones</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <div class="container-content">
+
+
+        <div class="content-all">
+            <div class="content-chat">
+                <div class="titulo">
+                    <h1>¿No sabes que elegir? Hazme una pregunta!</h1>
+                </div>
+                <div class="consultas">
+                    <div class=info-chat>
+                        <label for="btn-modal" id="info" title="¿Cómo usar?"><img src="../static/image/question.png" alt="info_chat"></label>
+
+                    </div>
+                    <input type="checkbox" id="btn-modal">
+                    <div class="container-modal">
+                        <div class="content-modal">
+                            <div class="titulo-modal">
+                                <h2>¿Cómo usar IA Tec?</h2>
+                            </div>
+                            <div class="info-modal">
+                                <p>IA Tec es un Asistente virtual basado en Inteligencia Artificial. Esta creado para generar las mejores recomendaciones de productos tecnológicos que se adapten a tus necesidades. <br> <br>¡Vamos, intenta pedir recomendaciones del producto que desees!</p>
+                            </div>
+                            <div class="video-modal">
+                                <video src="assets/Uso_chat.mp4" autoplay loop></video>
+                            </div>
+                            
+                           
+                          
+                            <div class="btn-cerrar">
+                                <label for="btn-modal">Entendido!</label>
+                            </div>
+                        </div>
+                        <label for="btn-modal" class="cerrar-modal"></label>
+                    </div>
+                    <form id="consulta-form" onsubmit="return sendUserMessage()">
+                        <input type="text" name="user_input" id="user_input" autocomplete="off" required>
+                        <div class="button-1">
+                            <input type="submit" value="Enviar">
+                        </div>
+                    </form>
+                </div>
+                <div class="respuesta">
+                    <div class="content-respuesta" id="respuesta-container">
+                        <div class="img-bot">
+                            <img class="bot" src="../static/image/bot.png" alt="">
+                        </div>
+                        <div class="respuesta-sms" id="chat_display">
+                            <!-- Respuestas aparecerán aquí y borrara el emnsaje por defecto -->
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="titulo-recomendacion">
+            <h2>También te puede interesar</h2>
+        </div>
+        <div class="content-recomendaciones">
+            <div class="productos_recomendados">
+                <div class="portada">
+                    <img class="img_recomendado"
+                        src="https://www.technodom.kz/_next/image?url=https%3A%2F%2Fapi.technodom.kz%2Ff3%2Fapi%2Fv1%2Fimages%2F800%2F800%2F2299451_4.jpg&w=3840&q=85"
+                        alt="">
+                </div>
+                <div class="nombre_producto">
+                    <h3>HP Pavilion </h3>
+                </div>
+                <div class="precio_producto">
+                    <h4>S/ <span>2560.00</span></h4>
+                </div>
+                <div class="codigo_producto">
+                    <span>#: </span>
+                    <p>65465dhg</p>
+                </div>
+                <div class="obtener_producto">
+                    <button>Lo quiero!</button>
+                </div>
+            </div>
+            <div class="productos_recomendados">
+                <div class="portada">
+                    <img class="img_recomendado"
+                        src="https://coolboxpe.vtexassets.com/arquivos/ids/351181-800-auto?v=638452469889630000&width=800&height=auto&aspect=true"
+                        alt="">
+                </div>
+                <div class="nombre_producto">
+                    <h3>HP Pavilion notbook black HG36 Lorem ipr</h3>
+                </div>
+                <div class="precio_producto">
+                    <h4>S/ <span>2560.00</span></h4>
+                </div>
+                <div class="codigo_producto">
+                    <span>#: </span>
+                    <p>65465dhg</p>
+                </div>
+                <div class="obtener_producto">
+                    <button>Lo quiero!</button>
+                </div>
+            </div>
+            <div class="productos_recomendados">
+                <div class="portada">
+                    <img class="img_recomendado"
+                        src="https://coolboxpe.vtexassets.com/arquivos/ids/354768-800-auto?v=638467416027830000&width=800&height=auto&aspect=true"
+                        alt="">
+                </div>
+                <div class="nombre_producto">
+                    <h3>HP Pavilion notbook black HG36 Lorem ipr</h3>
+                </div>
+                <div class="precio_producto">
+                    <h4>S/ <span>2560.00</span></h4>
+                </div>
+                <div class="codigo_producto">
+                    <span>#: </span>
+                    <p>65465dhg</p>
+                </div>
+                <div class="obtener_producto">
+                    <button>Lo quiero!</button>
+                </div>
+            </div>
+            <div class="productos_recomendados">
+                <div class="portada">
+                    <img class="img_recomendado"
+                        src="https://coolboxpe.vtexassets.com/arquivos/ids/355659-800-auto?v=638471496134330000&width=800&height=auto&aspect=true"
+                        alt="">
+                </div>
+                <div class="nombre_producto">
+                    <h3>HP Pavilion notbook black HG36 Lorem ipr</h3>
+                </div>
+                <div class="precio_producto">
+                    <h4>S/ <span>2560.00</span></h4>
+                </div>
+                <div class="codigo_producto">
+                    <span>#: </span>
+                    <p>65465dhg</p>
+                </div>
+                <div class="obtener_producto">
+                    <button>Lo quiero!</button>
+                </div>
+            </div>
+            <div class="productos_recomendados">
+                <div class="portada">
+                    <img class="img_recomendado"
+                        src="https://coolboxpe.vtexassets.com/arquivos/ids/354765-800-auto?v=638467413951600000&width=800&height=auto&aspect=true"
+                        alt="">
+                </div>
+                <div class="nombre_producto">
+                    <h3>HP Pavilion notbook black HG36 Lorem ipr</h3>
+                </div>
+                <div class="precio_producto">
+                    <h4>S/ <span>2560.00</span></h4>
+                </div>
+                <div class="codigo_producto">
+                    <span>#: </span>
+                    <p>65465dhg</p>
+                </div>
+                <div class="obtener_producto">
+                    <button>Lo quiero!</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
