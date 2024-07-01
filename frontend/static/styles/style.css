@@ -1,0 +1,75 @@
+/*estilos generales*/
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+/*estilos del navbar*/
+/*header {
+    width: 100%;
+    height: 80px;
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    position: fixed;
+    top: 0;
+    z-index: 3;
+}
+*/
+
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+ /*
+.logo h4 {
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin: 0;
+}*/
+
+.bars {
+    display: none;
+}
+
+.nav-bar ul {
+    display: flex;
+}
+/*
+.nav-bar ul li a {
+    display: block;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px 25px;
+    transition: border-bottom 0.2s;
+    margin: 0 5px;
+    border-bottom: 2px solid transparent;
+}
+
+*/
+
+.container-content {
+ 
+    height: 100%;
+    width: 100%;
+    display: block;
+
+}
+
+
+/*estilos del footer */
